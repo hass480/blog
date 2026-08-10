@@ -66,3 +66,20 @@ a:hover {
     background-color: #0000ee;
     color: white !important;
 }
+
+.post-content {
+    max-width: 65ch;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.post-content p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #222;
+}
+
+.post-content hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 40px 0 20px;
+}
