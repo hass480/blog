@@ -56,6 +56,10 @@ body.painted.nested {
     color: #c9a24b;
 }
 
+.card a:visited {
+    color: #c9a24b;
+}
+
 .card a:hover {
     color: #e2bb63;
     background: none;
