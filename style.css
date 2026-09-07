@@ -189,30 +189,86 @@ a:hover {
 }
 
 @media (max-width: 600px) {
+
+    /* homepage */
+    .hero {
+        height: 100dvh;
+    }
+
     .hero nav {
-        gap: 24px;
-        top: 20px;
-        right: 20px;
+        top: 18px;
+        right: 16px;
+        gap: 16px;
     }
 
     .hero nav a {
-        font-size: 20px;
-        padding: 6px 4px;
+        font-size: 15px;
+        padding: 6px 2px;
     }
 
     .hero .name {
-        font-size: 18px;
+        font-size: 14px;
         top: 20px;
-        left: 20px;
+        left: 16px;
+    }
+
+    /* inner pages */
+    .painted-scroll {
+        padding: 24px 12px;
     }
 
     .card {
-        padding: 24px 20px;
+        width: 100%;
+        padding: 26px 20px;
     }
 
+    .card h2 {
+        margin-top: 18px;
+    }
+
+    .card p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .home-link {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    /* blog posts */
+    .post-content {
+        max-width: 100%;
+    }
+
+    .post-content p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .post-content h1,
+    .post-content h2,
+    .post-content h3 {
+        overflow-wrap: break-word;
+    }
+
+    /* about */
     .about-photo {
         float: none;
         width: 100%;
-        margin: 0 0 16px;
+        height: auto;
+        margin: 0 0 20px;
     }
+
+    /* images */
+    .blog-photo {
+        width: 100%;
+        height: auto;
+    }
+
+    .top-links {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}
 }
