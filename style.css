@@ -305,6 +305,35 @@ a:hover {
 
 /* ---------- mobile ---------- */
 
+/* Include touch devices in landscape without changing their card layout. */
+@media (max-width: 600px), (hover: none) and (pointer: coarse) {
+    html {
+        /* Keep rubber-band scrolling from exposing the browser canvas. */
+        overscroll-behavior-y: none;
+    }
+
+    body.home::before,
+    body.painted::before {
+        /*
+           The painting must not shrink with Safari's expanding toolbar.
+           Keep it fixed while long pages scroll, with safe-area overscan.
+           The vh declaration is the fallback for browsers without lvh.
+        */
+        top: calc(-1 * env(safe-area-inset-top, 0px));
+        right: 0;
+        bottom: auto;
+        left: 0;
+        width: auto;
+        height: calc(100vh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+        height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+    }
+
+    .hero img {
+        /* Use the continuous painting underneath, not a second dvh crop. */
+        visibility: hidden;
+    }
+}
+
 @media (max-width: 600px) {
 
     html {
@@ -312,31 +341,6 @@ a:hover {
 
         width: 100%;
         min-height: 100%;
-
-        background-image: url('images/hero.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        background-color: #984416;
-    }
-
-
-    /*
-       Keep a full-screen painting underneath the page
-       at all times on mobile.
-    */
-    body.home::before,
-    body.painted::before {
-        position: fixed;
-
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-
-        width: 100vw;
-        height: 100dvh;
 
         background-image: url('images/hero.jpg');
         background-size: cover;
