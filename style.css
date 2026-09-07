@@ -166,6 +166,10 @@ body.painted {
     height: 100vh;
     height: 100dvh;
 
+    /* 1px taller than the viewport so the document counts as
+       scrollable, which makes Safari use translucent bars */
+    min-height: calc(100dvh + 1px);
+
     overflow: hidden;
 }
 
@@ -370,7 +374,7 @@ a:hover {
         height: 100vh;
         height: 100dvh;
 
-        min-height: 100dvh;
+        min-height: calc(100dvh + 1px);
 
         overflow: hidden;
     }
