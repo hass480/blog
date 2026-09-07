@@ -1,30 +1,52 @@
+html {
+    min-height: 100%;
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #0d1115;
+}
+
 body {
-    background-color: white;
+    background-color: transparent;
     color: black;
     font-family: 'Courier New', monospace;
     max-width: 800px;
     margin: 50px auto;
     padding: 0 20px;
+    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 body.home {
     margin: 0;
     padding: 0;
     max-width: none;
-    background-color: #0d1115;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: transparent;
 }
 body.painted {
     margin: 0;
     max-width: none;
+
     background-image: url('images/hero.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-color: transparent;
+
     display: flex;
     justify-content: center;
+
     padding: 60px 24px;
+
     box-sizing: border-box;
+
     min-height: 100vh;
+    min-height: 100dvh;
 }
 
 .card {
@@ -193,52 +215,44 @@ a:hover {
        Prevent mobile Safari/Chrome from exposing
        white or gray above/below the page.
     */
-    html {
-        background-color: #0d1115;
-    }
+html {
+    min-height: 100%;
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0d1115;
+}
 
-    body.home {
-        margin: 0;
-        padding: 0;
-        min-height: 100dvh;
-        background-color: #0d1115;
-        overflow-x: hidden;
-    }
+body {
+    min-height: 100dvh;
+}
 
-    body.painted {
-        margin: 0;
-        padding: 24px 12px 40px;
+body.home {
+    margin: 0;
+    padding: 0;
+    min-height: 100dvh;
+    background: transparent;
+}
 
-        min-height: 100dvh;
+body.painted {
+    margin: 0;
+    padding: 24px 12px 40px;
 
-        background-image: url('images/hero.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    min-height: 100dvh;
 
-        /*
-           Fixed backgrounds cause problems on phones,
-           so let the painting cover the whole document.
-        */
-        background-attachment: scroll;
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-color: transparent;
+}
 
-        /*
-           If the browser exposes the page underneath
-           during overscroll, use a very dark fallback
-           instead of gray/white.
-        */
-        background-color: #0d1115;
-    }
-
-
-    /* homepage */
-
-    .hero {
-        width: 100%;
-        height: 100dvh;
-        min-height: 100dvh;
-        overflow: hidden;
-    }
+.hero {
+    height: 100dvh;
+    min-height: 100dvh;
+}
 
     .hero img {
         width: 100%;
