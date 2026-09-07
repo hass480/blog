@@ -7,7 +7,7 @@ body {
     padding: 0 20px;
 }
 
-/* dark theme for inner pages (about/blog/misc/posts) */
+
 body.painted {
     background-color: #14171b;
     color: #e8e5da;
@@ -55,7 +55,7 @@ body.painted .post-date {
     margin-left: 8px;
 }
 
-/* painting-backed card layout for short pages: about, blog list, misc */
+
 html, body {
     height: 100%;
 }
@@ -74,6 +74,10 @@ body.framed {
     background-position: center;
     z-index: -1;
     background-image: url('images/hero.jpg');
+}
+
+.hero-bg {
+    background-image: url('../images/hero.jpg');
 }
 
 .painted-scroll {
