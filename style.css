@@ -112,6 +112,8 @@ body.painted.nested {
 
 .hero nav a:hover {
     text-decoration: underline;
+    background: none;
+    color: #c9a24b;
 }
 
 .hero .name {
