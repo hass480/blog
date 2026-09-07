@@ -7,26 +7,49 @@ body {
     padding: 0 20px;
 }
 
+/* painting-backed page layout */
+html, body {
+    height: 100%;
+}
+
 body.painted {
     margin: 0;
     max-width: none;
     padding: 0;
+    overflow: hidden;
+}
+
+.bg-fixed {
+    position: fixed;
+    inset: 0;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    z-index: -1;
+}
+
+.bg-fixed.hero-bg {
+    background-image: url('images/hero.jpg');
+}
+
+.bg-fixed.hero-bg.nested {
+    background-image: url('../images/hero.jpg');
+}
+
+.painted-scroll {
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     display: flex;
     justify-content: center;
     padding: 60px 24px;
     box-sizing: border-box;
-    min-height: 100vh;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-body.painted {
-    background-image: url('images/hero.jpg');
-}
-
-body.painted.nested {
-    background-image: url('../images/hero.jpg');
+.painted-scroll::-webkit-scrollbar {
+    display: none;
 }
 
 .card {
@@ -185,4 +208,33 @@ a:hover {
     border: none;
     border-top: 1px solid rgba(201, 162, 75, 0.25);
     margin: 40px 0 20px;
+}
+
+@media (max-width: 600px) {
+    .hero nav {
+        gap: 24px;
+        top: 20px;
+        right: 20px;
+    }
+
+    .hero nav a {
+        font-size: 20px;
+        padding: 6px 4px;
+    }
+
+    .hero .name {
+        font-size: 18px;
+        top: 20px;
+        left: 20px;
+    }
+
+    .card {
+        padding: 24px 20px;
+    }
+
+    .about-photo {
+        float: none;
+        width: 100%;
+        margin: 0 0 16px;
+    }
 }
