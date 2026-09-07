@@ -31,10 +31,6 @@ body.painted {
     background-image: url('images/hero.jpg');
 }
 
-.bg-fixed.hero-bg.nested {
-    background-image: url('../images/hero.jpg');
-}
-
 .painted-scroll {
     height: 100vh;
     height: 100dvh;
