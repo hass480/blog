@@ -13,7 +13,6 @@ body.home {
     max-width: none;
 }
 
-
 body.painted {
     margin: 0;
     max-width: none;
@@ -212,6 +211,14 @@ a:hover {
         left: 16px;
     }
 
+    /* fix mobile painted pages */
+    body.painted {
+        background-attachment: scroll;
+        min-height: 100dvh;
+        background-color: #14171b;
+        padding: 24px 12px 40px;
+    }
+
     /* inner pages */
     .painted-scroll {
         padding: 24px 12px;
@@ -270,5 +277,4 @@ a:hover {
         gap: 20px;
         flex-wrap: wrap;
     }
-}
 }
