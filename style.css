@@ -285,6 +285,14 @@ a:hover {
         padding: 24px 20px;
     }
 
+    .painted-scroll {
+    padding: 30px 16px;
+    }
+
+.card-wide {
+    max-width: 100%;
+}
+
     .about-photo {
         float: none;
         width: 100%;
