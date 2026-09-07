@@ -11,7 +11,7 @@ body {
 body.painted {
     margin: 0;
     max-width: none;
-    background-image: url('images/hero.jpg');
+    padding: 0;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -20,6 +20,14 @@ body.painted {
     padding: 60px 24px;
     box-sizing: border-box;
     min-height: 100vh;
+}
+
+body.painted {
+    background-image: url('images/hero.jpg');
+}
+
+body.painted.nested {
+    background-image: url('../images/hero.jpg');
 }
 
 .card {
@@ -34,10 +42,6 @@ body.painted {
     font-family: 'Courier New', monospace;
 }
 
-.card.card-wide {
-    max-width: 760px;
-}
-
 .card h2 {
     color: #f2f0e8;
     margin: 24px 0 20px;
@@ -50,10 +54,6 @@ body.painted {
 }
 
 .card a {
-    color: #c9a24b;
-}
-
-.card a:visited {
     color: #c9a24b;
 }
 
@@ -79,7 +79,9 @@ body.painted {
     margin-left: 8px;
 }
 
-/* homepage hero */
+.card.card-wide {
+    max-width: 760px;
+}
 .hero {
     position: relative;
     width: 100%;
@@ -111,8 +113,6 @@ body.painted {
 
 .hero nav a:hover {
     text-decoration: underline;
-    background: none;
-    color: #c9a24b;
 }
 
 .hero .name {
@@ -180,33 +180,4 @@ a:hover {
     border: none;
     border-top: 1px solid rgba(201, 162, 75, 0.25);
     margin: 40px 0 20px;
-}
-
-@media (max-width: 600px) {
-    .hero nav {
-        gap: 24px;
-        top: 20px;
-        right: 20px;
-    }
-
-    .hero nav a {
-        font-size: 20px;
-        padding: 6px 4px;
-    }
-
-    .hero .name {
-        font-size: 18px;
-        top: 20px;
-        left: 20px;
-    }
-
-    .card {
-        padding: 24px 20px;
-    }
-
-    .about-photo {
-        float: none;
-        width: 100%;
-        margin: 0 0 16px;
-    }
 }
