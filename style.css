@@ -7,12 +7,60 @@ body {
     padding: 0 20px;
 }
 
-/* painting-backed page layout */
+/* dark theme for inner pages (about/blog/misc/posts) */
+body.painted {
+    background-color: #14171b;
+    color: #e8e5da;
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 0 24px 60px;
+}
+
+body.painted h2 {
+    color: #f2f0e8;
+}
+
+body.painted p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #cfcabb;
+}
+
+body.painted a {
+    color: #c9a24b;
+}
+
+body.painted a:visited {
+    color: #c9a24b;
+}
+
+body.painted a:hover {
+    color: #e2bb63;
+    background: none;
+}
+
+body.painted pre {
+    color: #7d7a6d;
+}
+
+body.painted .home-link {
+    color: #c9a24b;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+body.painted .post-date {
+    font-size: 13px;
+    color: #7d7a6d;
+    margin-left: 8px;
+}
+
+/* painting-backed card layout for short pages: about, blog list, misc */
 html, body {
     height: 100%;
 }
 
-body.painted {
+body.framed {
     margin: 0;
     max-width: none;
     padding: 0;
@@ -25,9 +73,6 @@ body.painted {
     background-size: cover;
     background-position: center;
     z-index: -1;
-}
-
-.bg-fixed.hero-bg {
     background-image: url('images/hero.jpg');
 }
 
@@ -101,9 +146,7 @@ body.painted {
     margin-left: 8px;
 }
 
-.card.card-wide {
-    max-width: 760px;
-}
+/* homepage hero */
 .hero {
     position: relative;
     width: 100%;
@@ -222,6 +265,11 @@ a:hover {
         font-size: 18px;
         top: 20px;
         left: 20px;
+    }
+
+    body.painted {
+        margin: 30px auto;
+        padding: 0 16px 40px;
     }
 
     .card {
