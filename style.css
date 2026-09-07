@@ -495,3 +495,19 @@ a:hover {
         flex-wrap: wrap;
     }
 }
+/*
+   Diagnostic override for Safari 26.6.1. Append to the END of style.css.
+   Removes solid color inputs to Safari's toolbar background handling.
+   This is an iPhone test candidate, not a verified Safari fix.
+*/
+@media (max-width: 600px), (hover: none) and (pointer: coarse) {
+    html {
+        background-color: transparent;
+        overscroll-behavior-y: auto;
+    }
+
+    body.home::before,
+    body.painted::before {
+        background-color: transparent;
+    }
+}
