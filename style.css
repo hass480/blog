@@ -7,94 +7,19 @@ body {
     padding: 0 20px;
 }
 
-
+/* painting-backed page layout */
 body.painted {
-    background-color: #14171b;
-    color: #e8e5da;
-    max-width: 720px;
-    margin: 60px auto;
-    padding: 0 24px 60px;
-}
-
-body.painted h2 {
-    color: #f2f0e8;
-}
-
-body.painted p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #cfcabb;
-}
-
-body.painted a {
-    color: #c9a24b;
-}
-
-body.painted a:visited {
-    color: #c9a24b;
-}
-
-body.painted a:hover {
-    color: #e2bb63;
-    background: none;
-}
-
-body.painted pre {
-    color: #7d7a6d;
-}
-
-body.painted .home-link {
-    color: #c9a24b;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-body.painted .post-date {
-    font-size: 13px;
-    color: #7d7a6d;
-    margin-left: 8px;
-}
-
-
-html, body {
-    height: 100%;
-}
-
-body.framed {
     margin: 0;
     max-width: none;
-    padding: 0;
-    overflow: hidden;
-}
-
-.bg-fixed {
-    position: fixed;
-    inset: 0;
+    background-image: url('images/hero.jpg');
     background-size: cover;
     background-position: center;
-    z-index: -1;
-    background-image: url('images/hero.jpg');
-}
-
-.hero-bg {
-    background-image: url('../images/hero.jpg');
-}
-
-.painted-scroll {
-    height: 100vh;
-    height: 100dvh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     padding: 60px 24px;
     box-sizing: border-box;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.painted-scroll::-webkit-scrollbar {
-    display: none;
+    min-height: 100vh;
 }
 
 .card {
@@ -107,6 +32,10 @@ body.framed {
     color: #e8e5da;
     height: fit-content;
     font-family: 'Courier New', monospace;
+}
+
+.card.card-wide {
+    max-width: 760px;
 }
 
 .card h2 {
@@ -236,18 +165,13 @@ a:hover {
     color: white !important;
 }
 
-.card-wide {
-    max-width: 760px;
-}
-
 .post-content {
     max-width: 65ch;
-    margin: 0 auto;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Georgia, 'Times New Roman', serif;
 }
 
 .post-content p {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.75;
     color: #cfcabb;
 }
@@ -276,22 +200,9 @@ a:hover {
         left: 20px;
     }
 
-    body.painted {
-        margin: 30px auto;
-        padding: 0 16px 40px;
-    }
-
     .card {
         padding: 24px 20px;
     }
-
-    .painted-scroll {
-    padding: 30px 16px;
-    }
-
-.card-wide {
-    max-width: 100%;
-}
 
     .about-photo {
         float: none;
