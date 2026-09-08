@@ -1,18 +1,13 @@
-:root { --page-background: #14171b; }
-
-/* Prevent rubber-band scrolling on touch screens; long pages still scroll. */
-@media (max-width: 600px), (hover: none) and (pointer: coarse) {
-    html {
-        overscroll-behavior-y: none;
-    }
-}
-
 /* ---------- page background ---------- */
 
 html {
     margin: 0;
     min-height: 100%;
-    background-color: var(--page-background);
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #984416;
 }
 
 body {
@@ -23,6 +18,31 @@ body {
     padding: 0 20px;
     min-height: 100vh;
     box-sizing: border-box;
+}
+
+
+/*
+   Permanent painting layer.
+
+   This sits behind the homepage and all painted pages
+   and always fills the entire browser viewport.
+*/
+body.home::before,
+body.painted::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #984416;
+
+    z-index: -1;
+    pointer-events: none;
 }
 
 
@@ -37,7 +57,7 @@ body.home {
     min-height: 100vh;
     min-height: 100dvh;
 
-    background: var(--page-background);
+    background: transparent;
 
     position: relative;
     isolation: isolate;
@@ -58,7 +78,7 @@ body.painted {
     min-height: 100vh;
     min-height: 100dvh;
 
-    background: var(--page-background);
+    background: transparent;
 
     display: flex;
     justify-content: center;
@@ -293,7 +313,12 @@ a:hover {
         width: 100%;
         min-height: 100%;
 
-        background-color: var(--page-background);
+        background-image: url('images/hero.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        background-color: #984416;
     }
 
 
@@ -309,7 +334,7 @@ a:hover {
         min-height: 100vh;
         min-height: 100dvh;
 
-        background: var(--page-background);
+        background: transparent;
 
         overflow-x: hidden;
     }
@@ -368,7 +393,7 @@ a:hover {
 
         padding: 24px 12px 40px;
 
-        background: var(--page-background);
+        background: transparent;
 
         box-sizing: border-box;
     }
@@ -439,5 +464,35 @@ a:hover {
         gap: 20px;
 
         flex-wrap: wrap;
+    }
+}
+
+/* Mobile painting belongs to the scrolling document, not a fixed layer. */
+@media (max-width: 600px), (hover: none) and (pointer: coarse) {
+    html {
+        /* Let the body's background paint the document canvas. */
+        background: none;
+    }
+
+    body.home,
+    body.painted {
+        min-height: 100vh;
+        min-height: 100lvh;
+        background: url('images/hero.jpg') center / cover no-repeat scroll;
+    }
+
+    body.home::before,
+    body.painted::before {
+        content: none;
+    }
+
+    .hero {
+        height: 100vh;
+        height: 100lvh;
+    }
+
+    .hero img {
+        /* Keep one painting and retain the existing hero geometry. */
+        visibility: hidden;
     }
 }
