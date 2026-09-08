@@ -82,6 +82,13 @@
         ref.addEventListener('mouseleave', hideTooltip);
         ref.addEventListener('focus', function () { showTooltip(ref); });
         ref.addEventListener('blur', hideTooltip);
+        ref.addEventListener('click', hideTooltip);
+    });
+
+    document.addEventListener('touchstart', function (e) {
+        if (!e.target.closest('.post-content a[href^="#fn"]')) {
+            hideTooltip();
+        }
     });
 })();
 </script>
