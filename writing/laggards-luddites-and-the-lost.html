@@ -110,6 +110,11 @@
         ref.addEventListener('mouseleave', hideTooltip);
         ref.addEventListener('focus', function () { showTooltip(ref); });
         ref.addEventListener('blur', hideTooltip);
+        ref.addEventListener('click', function (e) {
+            if (matchMedia('(hover: none)').matches) {
+                e.preventDefault();
+            }
+        });
     });
 
     document.addEventListener('touchstart', function (e) {
