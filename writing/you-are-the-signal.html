@@ -48,7 +48,42 @@
 </div>
 
 </div>
-</body>
-</html>
+<script>
+(function () {
+    var refs = document.querySelectorAll('.post-content a[href^="#fn"]');
+    if (!refs.length) return;
+
+    var tooltip = document.createElement('div');
+    tooltip.className = 'footnote-tooltip';
+    document.body.appendChild(tooltip);
+
+    function positionTooltip(ref) {
+        var rect = ref.getBoundingClientRect();
+        var tw = tooltip.offsetWidth;
+        var left = Math.min(Math.max(rect.left, 16), window.innerWidth - tw - 16);
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = (rect.bottom + 8) + 'px';
+    }
+
+    function showTooltip(ref) {
+        var note = document.getElementById(ref.getAttribute('href').slice(1));
+        if (!note) return;
+        tooltip.innerHTML = note.innerHTML;
+        tooltip.classList.add('is-visible');
+        positionTooltip(ref);
+    }
+
+    function hideTooltip() {
+        tooltip.classList.remove('is-visible');
+    }
+
+    refs.forEach(function (ref) {
+        ref.addEventListener('mouseenter', function () { showTooltip(ref); });
+        ref.addEventListener('mouseleave', hideTooltip);
+        ref.addEventListener('focus', function () { showTooltip(ref); });
+        ref.addEventListener('blur', hideTooltip);
+    });
+})();
+</script>
 </body>
 </html>
