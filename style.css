@@ -305,35 +305,6 @@ a:hover {
 
 /* ---------- mobile ---------- */
 
-/* Include touch devices in landscape without changing their card layout. */
-@media (max-width: 600px), (hover: none) and (pointer: coarse) {
-    html {
-        /* Keep rubber-band scrolling from exposing the browser canvas. */
-        overscroll-behavior-y: none;
-    }
-
-    body.home::before,
-    body.painted::before {
-        /*
-           The painting must not shrink with Safari's expanding toolbar.
-           Keep it fixed while long pages scroll, with safe-area overscan.
-           The vh declaration is the fallback for browsers without lvh.
-        */
-        top: calc(-1 * env(safe-area-inset-top, 0px));
-        right: 0;
-        bottom: auto;
-        left: 0;
-        width: auto;
-        height: calc(100vh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-        height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-    }
-
-    .hero img {
-        /* Use the continuous painting underneath, not a second dvh crop. */
-        visibility: hidden;
-    }
-}
-
 @media (max-width: 600px) {
 
     html {
@@ -495,19 +466,33 @@ a:hover {
         flex-wrap: wrap;
     }
 }
-/*
-   Diagnostic override for Safari 26.6.1. Append to the END of style.css.
-   Removes solid color inputs to Safari's toolbar background handling.
-   This is an iPhone test candidate, not a verified Safari fix.
-*/
+
+/* Mobile painting belongs to the scrolling document, not a fixed layer. */
 @media (max-width: 600px), (hover: none) and (pointer: coarse) {
     html {
-        background-color: transparent;
-        overscroll-behavior-y: auto;
+        /* Let the body's background paint the document canvas. */
+        background: none;
+    }
+
+    body.home,
+    body.painted {
+        min-height: 100vh;
+        min-height: 100lvh;
+        background: url('images/hero.jpg') center / cover no-repeat scroll;
     }
 
     body.home::before,
     body.painted::before {
-        background-color: transparent;
+        content: none;
+    }
+
+    .hero {
+        height: 100vh;
+        height: 100lvh;
+    }
+
+    .hero img {
+        /* Keep one painting and retain the existing hero geometry. */
+        visibility: hidden;
     }
 }
